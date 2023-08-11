@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinatesMapWF.App", "CoordinatesMapWF.App\CoordinatesMapWF.App.csproj", "{343721E0-09E4-499F-8A7C-E662228FA7AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationLayer", "ApplicationLayer", "{32D1DE05-782F-49A9-9435-B26F90DE5716}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreLayer", "CoreLayer", "{586D4498-3195-45EA-B058-765AFFE8E269}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InfrastructureLayer", "InfrastructureLayer", "{51F923E9-E0FE-4B6B-AED4-866D65566E9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinatesMapWF.Domain", "CoordinatesMapWF.Domain\CoordinatesMapWF.Domain.csproj", "{2660D8AF-1CF9-4CF7-A181-212B04579899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinatesMapWF.Infrastructure.DataAccess", "CoordinatesMapWF.Infrastructure.DataAccess\CoordinatesMapWF.Infrastructure.DataAccess.csproj", "{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{343721E0-09E4-499F-8A7C-E662228FA7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{343721E0-09E4-499F-8A7C-E662228FA7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{343721E0-09E4-499F-8A7C-E662228FA7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{343721E0-09E4-499F-8A7C-E662228FA7AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2660D8AF-1CF9-4CF7-A181-212B04579899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2660D8AF-1CF9-4CF7-A181-212B04579899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2660D8AF-1CF9-4CF7-A181-212B04579899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2660D8AF-1CF9-4CF7-A181-212B04579899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{343721E0-09E4-499F-8A7C-E662228FA7AF} = {32D1DE05-782F-49A9-9435-B26F90DE5716}
+		{2660D8AF-1CF9-4CF7-A181-212B04579899} = {586D4498-3195-45EA-B058-765AFFE8E269}
+		{3AF7DE8B-B933-4690-91D0-04C657CA9E9F} = {51F923E9-E0FE-4B6B-AED4-866D65566E9D}
+	EndGlobalSection
+EndGlobal
