@@ -1,6 +1,6 @@
 ﻿namespace CoordinatesMapWF.App
 {
-    partial class Form1
+    partial class MapForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MapForm));
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             this.gMapControl1.Size = new System.Drawing.Size(798, 448);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
-            this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
+            this.gMapControl1.Load += new System.EventHandler(this.gMapControl_Load);
             // 
             // Form1
             // 
@@ -71,7 +71,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "MapMarkers";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MapForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

@@ -1,21 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using CoordinatesMapWF.Domain.Models;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 
 namespace CoordinatesMapWF.App
 {
-    public partial class Form1 : Form
+    public partial class MapForm : Form
     {
-        public Form1()
+        public MapForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MapForm_Load(object sender, EventArgs e)
         {
             InitializeComponent();
         }
 
-        private void gMapControl1_Load(object sender, EventArgs e)
+        private void gMapControl_Load(object sender, EventArgs e)
         {
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
@@ -28,6 +32,36 @@ namespace CoordinatesMapWF.App
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.ShowCenter = false;
             gMapControl1.ShowTileGridLines = false;
+            
+            // Example coordinate.
+            var coordinate = new Coordinate()
+            {
+                Id = Guid.NewGuid(),
+                Latitude = 66.4169575018027,
+                Longitude = 94.25025752215694
+            };
+            var points = new List<Coordinate> { coordinate };
+            gMapControl1.Overlays.Add(GetOverlayMarkers(points, "GroupsMarkers"));
+        }
+        
+        private GMarkerGoogle GetMarker(Coordinate coordinate)
+        {
+            GMarkerGoogle mapMarker = new GMarkerGoogle(
+                new GMap.NET.PointLatLng(coordinate.Latitude, coordinate.Longitude), GMarkerGoogleType.red);
+            mapMarker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(mapMarker);
+            mapMarker.ToolTipText = coordinate.Id.ToString();
+            mapMarker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+            return mapMarker;
+        }
+        
+        private GMapOverlay GetOverlayMarkers(List<Coordinate> coordinates, string name)
+        {
+            GMapOverlay gMapMarkers = new GMapOverlay(name);
+            foreach (var coordinate in coordinates)
+            {
+                gMapMarkers.Markers.Add(GetMarker(coordinate));
+            }
+            return gMapMarkers;
         }
     }
 }

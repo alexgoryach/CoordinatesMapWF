@@ -92,5 +92,11 @@
     <ItemGroup>
         <None Include="App.config" />
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\CoordinatesMapWF.Domain\CoordinatesMapWF.Domain.csproj">
+        <Project>{2660d8af-1cf9-4cf7-a181-212b04579899}</Project>
+        <Name>CoordinatesMapWF.Domain</Name>
+      </ProjectReference>
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

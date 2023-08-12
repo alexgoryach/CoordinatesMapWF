@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CoordinatesMapWF.App
 {
+    /// <summary>
+    /// Application entry point.
+    /// </summary>
     static class Program
     {
         /// <summary>
@@ -16,7 +16,7 @@ namespace CoordinatesMapWF.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MapForm());
         }
     }
 }
