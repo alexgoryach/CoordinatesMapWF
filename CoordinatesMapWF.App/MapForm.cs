@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using CoordinatesMapWF.Domain.Models;
+using CoordinatesMapWF.Infrastructure.Abstraction.Interfaces;
+using CoordinatesMapWF.Infrastructure.DataAccess;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 
@@ -9,9 +11,12 @@ namespace CoordinatesMapWF.App
 {
     public partial class MapForm : Form
     {
+        private readonly IDataBaseConnection dataBaseConnection;
+
         public MapForm()
         {
             InitializeComponent();
+            dataBaseConnection = new DataBaseConnection();
         }
 
         private void MapForm_Load(object sender, EventArgs e)
@@ -33,14 +38,8 @@ namespace CoordinatesMapWF.App
             gMapControl1.ShowCenter = false;
             gMapControl1.ShowTileGridLines = false;
             
-            // Example coordinate.
-            var coordinate = new Coordinate()
-            {
-                Id = Guid.NewGuid(),
-                Latitude = 66.4169575018027,
-                Longitude = 94.25025752215694
-            };
-            var points = new List<Coordinate> { coordinate };
+            var points = new List<Coordinate>();
+            dataBaseConnection.GetMapMarkers(points);
             gMapControl1.Overlays.Add(GetOverlayMarkers(points, "GroupsMarkers"));
         }
         
@@ -49,7 +48,7 @@ namespace CoordinatesMapWF.App
             GMarkerGoogle mapMarker = new GMarkerGoogle(
                 new GMap.NET.PointLatLng(coordinate.Latitude, coordinate.Longitude), GMarkerGoogleType.red);
             mapMarker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(mapMarker);
-            mapMarker.ToolTipText = coordinate.Id.ToString();
+            mapMarker.ToolTipText = coordinate.Name;
             mapMarker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
             return mapMarker;
         }

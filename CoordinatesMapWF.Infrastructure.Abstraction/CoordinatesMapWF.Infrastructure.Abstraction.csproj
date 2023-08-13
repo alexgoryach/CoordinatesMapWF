@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}</ProjectGuid>
+        <ProjectGuid>{CA9A222A-B907-4B50-BC4C-B3871736107E}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>CoordinatesMapWF.Infrastructure.DataAccess</RootNamespace>
-        <AssemblyName>CoordinatesMapWF.Infrastructure.DataAccess</AssemblyName>
+        <RootNamespace>CoordinatesMapWF.Infrastructure.Abstraction</RootNamespace>
+        <AssemblyName>CoordinatesMapWF.Infrastructure.Abstraction</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -38,17 +38,13 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="DataBaseConnection.cs" />
+        <Compile Include="Interfaces\IDataBaseConnection.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\CoordinatesMapWF.Domain\CoordinatesMapWF.Domain.csproj">
         <Project>{2660d8af-1cf9-4cf7-a181-212b04579899}</Project>
         <Name>CoordinatesMapWF.Domain</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\CoordinatesMapWF.Infrastructure.Abstraction\CoordinatesMapWF.Infrastructure.Abstraction.csproj">
-        <Project>{ca9a222a-b907-4b50-bc4c-b3871736107e}</Project>
-        <Name>CoordinatesMapWF.Infrastructure.Abstraction</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

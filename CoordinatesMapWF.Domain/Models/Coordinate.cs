@@ -10,7 +10,12 @@ namespace CoordinatesMapWF.Domain.Models
         /// <summary>
         /// Point identifier.
         /// </summary>
-        public Guid Id { get; set; }
+        public int Id { get; set; }
+        
+        /// <summary>
+        /// Point name.
+        /// </summary>
+        public string Name { get; set; }
         
         /// <summary>
         /// Point latitude.

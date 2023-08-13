@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinatesMapWF.Domain", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinatesMapWF.Infrastructure.DataAccess", "CoordinatesMapWF.Infrastructure.DataAccess\CoordinatesMapWF.Infrastructure.DataAccess.csproj", "{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinatesMapWF.Infrastructure.Abstraction", "CoordinatesMapWF.Infrastructure.Abstraction\CoordinatesMapWF.Infrastructure.Abstraction.csproj", "{CA9A222A-B907-4B50-BC4C-B3871736107E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,10 +32,15 @@ Global
 		{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AF7DE8B-B933-4690-91D0-04C657CA9E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9A222A-B907-4B50-BC4C-B3871736107E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9A222A-B907-4B50-BC4C-B3871736107E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9A222A-B907-4B50-BC4C-B3871736107E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9A222A-B907-4B50-BC4C-B3871736107E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{343721E0-09E4-499F-8A7C-E662228FA7AF} = {32D1DE05-782F-49A9-9435-B26F90DE5716}
 		{2660D8AF-1CF9-4CF7-A181-212B04579899} = {586D4498-3195-45EA-B058-765AFFE8E269}
 		{3AF7DE8B-B933-4690-91D0-04C657CA9E9F} = {51F923E9-E0FE-4B6B-AED4-866D65566E9D}
+		{CA9A222A-B907-4B50-BC4C-B3871736107E} = {51F923E9-E0FE-4B6B-AED4-866D65566E9D}
 	EndGlobalSection
 EndGlobal
