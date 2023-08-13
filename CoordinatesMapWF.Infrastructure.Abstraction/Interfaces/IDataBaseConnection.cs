@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
 using CoordinatesMapWF.Domain.Models;
 
 namespace CoordinatesMapWF.Infrastructure.Abstraction.Interfaces

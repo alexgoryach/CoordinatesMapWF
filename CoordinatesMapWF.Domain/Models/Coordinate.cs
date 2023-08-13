@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoordinatesMapWF.Domain.Models
+﻿namespace CoordinatesMapWF.Domain.Models
 {
     /// <summary>
     /// Coordinate entity.
