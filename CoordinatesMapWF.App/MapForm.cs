@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using CoordinatesMapWF.Domain.Models;
 using CoordinatesMapWF.Infrastructure.Abstraction.Interfaces;
@@ -13,15 +14,15 @@ namespace CoordinatesMapWF.App
     {
         private readonly IDataBaseConnection dataBaseConnection;
 
+        private GMapMarker selectedMarker;
+
         public MapForm()
         {
             InitializeComponent();
             dataBaseConnection = new DataBaseConnection();
-        }
 
-        private void MapForm_Load(object sender, EventArgs e)
-        {
-            InitializeComponent();
+            gMapControl1.MouseUp += gMapControl_MouseUp;
+            gMapControl1.MouseDown += gMapControl_MouseDown;
         }
 
         private void gMapControl_Load(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace CoordinatesMapWF.App
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.ShowCenter = false;
             gMapControl1.ShowTileGridLines = false;
-            
+
             var points = new List<Coordinate>();
             dataBaseConnection.GetMapMarkers(points);
             gMapControl1.Overlays.Add(GetOverlayMarkers(points, "GroupsMarkers"));
@@ -48,7 +49,7 @@ namespace CoordinatesMapWF.App
             GMarkerGoogle mapMarker = new GMarkerGoogle(
                 new GMap.NET.PointLatLng(coordinate.Latitude, coordinate.Longitude), GMarkerGoogleType.red);
             mapMarker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(mapMarker);
-            mapMarker.ToolTipText = coordinate.Name;
+            mapMarker.ToolTipText = coordinate.Id.ToString();
             mapMarker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
             return mapMarker;
         }
@@ -61,6 +62,30 @@ namespace CoordinatesMapWF.App
                 gMapMarkers.Markers.Add(GetMarker(coordinate));
             }
             return gMapMarkers;
+        }
+        
+        private void gMapControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            selectedMarker = gMapControl1.Overlays
+                .SelectMany(o => o.Markers)
+                .FirstOrDefault(m => m.IsMouseOver == true);
+        }
+
+        private void gMapControl_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (selectedMarker != null)
+            {
+                var pointCoordinates = gMapControl1.FromLocalToLatLng(e.X, e.Y);
+                selectedMarker.Position = pointCoordinates;
+                var markerToUpdate = new Coordinate()
+                {
+                    Id = Int32.Parse(selectedMarker.ToolTipText),
+                    Latitude = pointCoordinates.Lat,
+                    Longitude = pointCoordinates.Lng
+                };
+                dataBaseConnection.UpdateMapMarker(markerToUpdate);
+            }
+            selectedMarker = null;
         }
     }
 }

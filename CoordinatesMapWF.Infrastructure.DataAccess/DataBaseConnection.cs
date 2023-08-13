@@ -76,11 +76,11 @@ namespace CoordinatesMapWF.Infrastructure.DataAccess
                         var pointProperties = point.GetType().GetProperties();
                         var data = new object[pointProperties.Length];
                         reader.GetValues(data);
-                        var index = 0;
-                        point.Id = (int) data[index++];
-                        point.Name = (string)data[index++];
-                        point.Latitude = (double)data[index++];
-                        point.Longitude = (double)data[index];
+                        var propertyIndex = 0;
+                        point.Id = (int) data[propertyIndex++];
+                        point.Name = (string)data[propertyIndex++];
+                        point.Latitude = (double)data[propertyIndex++];
+                        point.Longitude = (double)data[propertyIndex];
                         coordinates.Add(point);
                     }
                 }
